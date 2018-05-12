@@ -26,4 +26,8 @@ public interface TimeSheetMapper
     TimeSheetRecord mapToTimeSheetRecord(TimeSheetDO timeSheetDO);
 
     List<TimeSheetRecord> mapToTimeSheetRecords(List<TimeSheetDO> timeSheetDOS);
+
+//    @Mapping(target = "sumOfWorkingHours", ignore = true)
+//    @Mapping(target = "timeSheetRecords", ignore = true)
+//    TimeSheetRecordsSum mapToTimeSheetRecordSum(List<TimeSheetDO> timeSheetDOS);
 }

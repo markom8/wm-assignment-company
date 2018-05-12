@@ -19,6 +19,7 @@ import java.io.File;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -253,6 +254,20 @@ public class AssignmentTimeSheetTest
             + "\t\"employeePersonalNumber\":\"1234\",\n"
             + "\t\"date\":\"2018-01-01\",\n"
             + "\t\"taskName\":\"Task1\"\n"
+            + "}")).andDo(print());
+
+        mockMvcTimeSheetController.perform(post("/api/timesheet").contentType(MediaType.APPLICATION_JSON_UTF8).content("{\n"
+            + "\t\"projectName\":\"momp\",\n"
+            + "\t\"workedHours\":8,\n"
+            + "\t\"team\":\"TESLA\",\n"
+            + "\t\"employeePersonalNumber\":\"1234\",\n"
+            + "\t\"date\":\"2018-01-01\",\n"
+            + "\t\"taskName\":\"Task2\"\n"
+            + "}")).andDo(print());
+
+        mockMvcTimeSheetController.perform(post("/api/timesheet/worklog").contentType(MediaType.APPLICATION_JSON_UTF8).content("{\n"
+            + "\t\"projectName\":\"momp\",\n"
+            + "\t\"employeePersonalNumber\":\"1234\"\n"
             + "}")).andDo(print());
     }
 }

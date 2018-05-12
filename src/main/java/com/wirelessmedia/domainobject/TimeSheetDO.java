@@ -1,11 +1,9 @@
 package com.wirelessmedia.domainobject;
 
-import com.wirelessmedia.domainvalue.TimeSheetPK;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.time.ZonedDateTime;
 import java.util.Date;
 
 @Entity
@@ -23,7 +21,7 @@ public class TimeSheetDO
     private Date date;
 
     @Column
-    private Float workedHours;
+    private Double workedHours;
 
     @Column
     private String team;
@@ -60,13 +58,13 @@ public class TimeSheetDO
     }
 
 
-    public Float getWorkedHours()
+    public Double getWorkedHours()
     {
         return workedHours;
     }
 
 
-    public void setWorkedHours(Float workedHours)
+    public void setWorkedHours(Double workedHours)
     {
         this.workedHours = workedHours;
     }

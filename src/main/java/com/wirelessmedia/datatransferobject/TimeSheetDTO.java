@@ -23,7 +23,7 @@ public class TimeSheetDTO implements Serializable
     @NotNull(message = "error.timesheet.date.null")
     private Date date;
 
-    private Float workedHours;
+    private Double workedHours;
 
     private String team;
 
@@ -70,13 +70,13 @@ public class TimeSheetDTO implements Serializable
     }
 
 
-    public Float getWorkedHours()
+    public Double getWorkedHours()
     {
         return workedHours;
     }
 
 
-    public void setWorkedHours(Float workedHours)
+    public void setWorkedHours(Double workedHours)
     {
         this.workedHours = workedHours;
     }

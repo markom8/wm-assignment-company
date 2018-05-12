@@ -5,12 +5,10 @@ import com.wirelessmedia.domainobject.EmployeeDO;
 import com.wirelessmedia.domainobject.ProjectDO;
 import com.wirelessmedia.domainobject.TaskDO;
 import com.wirelessmedia.domainobject.TimeSheetDO;
-import com.wirelessmedia.domainvalue.TimeSheetPK;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -57,5 +55,11 @@ public class TimeSheetServiceImpl implements TimeSheetService
     @Override public List<TimeSheetDO> getAll()
     {
         return timeSheetRepository.findAll();
+    }
+
+
+    @Override public List<TimeSheetDO> getTimeSheetsByEmployeeDOAndProjectDO(EmployeeDO employeeDO, ProjectDO projectDO)
+    {
+        return timeSheetRepository.findByProjectDOAndEmployeeDO(projectDO, employeeDO);
     }
 }

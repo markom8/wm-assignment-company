@@ -16,7 +16,7 @@ public class TimeSheetRecord implements Serializable
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private ZonedDateTime date;
 
-    private Float workedHours;
+    private Double workedHours;
 
     private String team;
 
@@ -44,13 +44,13 @@ public class TimeSheetRecord implements Serializable
     }
 
 
-    public Float getWorkedHours()
+    public Double getWorkedHours()
     {
         return workedHours;
     }
 
 
-    public void setWorkedHours(Float workedHours)
+    public void setWorkedHours(Double workedHours)
     {
         this.workedHours = workedHours;
     }

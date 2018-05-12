@@ -1,18 +1,16 @@
 package com.wirelessmedia.controller.facade.mapper;
 
-import com.wirelessmedia.datatransferobject.ProjectDTO;
 import com.wirelessmedia.datatransferobject.TimeSheetDTO;
 import com.wirelessmedia.datatransferobject.TimeSheetRecord;
-import com.wirelessmedia.domainobject.*;
-import com.wirelessmedia.domainvalue.EmployeeType;
-import com.wirelessmedia.domainvalue.TimeSheetPK;
-import com.wirelessmedia.exception.EmplyeeMystBeJuniorOrMediorDeveloper;
-import com.wirelessmedia.exception.EmplyeeMystBeTeamLead;
+import com.wirelessmedia.datatransferobject.TimeSheetRecordsSum;
+import com.wirelessmedia.domainobject.EmployeeDO;
+import com.wirelessmedia.domainobject.ProjectDO;
+import com.wirelessmedia.domainobject.TaskDO;
+import com.wirelessmedia.domainobject.TimeSheetDO;
 import com.wirelessmedia.exception.EmplyeeNotAssignedToProject;
 import com.wirelessmedia.service.employee.EmployeeService;
 import com.wirelessmedia.service.project.ProjectService;
 import com.wirelessmedia.service.task.TaskService;
-import com.wirelessmedia.service.team.TeamService;
 import com.wirelessmedia.service.timesheet.TimeSheetService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -65,7 +63,7 @@ public abstract class TimeSheetMapperDecorator implements TimeSheetMapper
         if (!projectDO.getProjectManager().equals(employeeDO) && !projectDO.getTeamDOS().stream().filter(p -> p.getTeamLead().equals(employeeDO)).findFirst()
             .isPresent() && !projectDO.getTeamDOS().stream().filter(p->p.getDevelopers().contains(employeeDO)).findFirst().isPresent())
         {
-            //throw new EmplyeeNotAssignedToProject("Employee not assigned to project!");
+            throw new EmplyeeNotAssignedToProject("Employee not assigned to project!");
         }
 
         Optional<TimeSheetDO> entity = timeSheetService.findTimeSheetByDTO(projectDO,employeeDO,taskDO,timeSheetDTO.getDate());
@@ -99,4 +97,13 @@ public abstract class TimeSheetMapperDecorator implements TimeSheetMapper
     {
         return timeSheetDOS.stream().map(timeSheetDO -> mapToTimeSheetRecord(timeSheetDO)).collect(Collectors.toList());
     }
+
+
+//    @Override public TimeSheetRecordsSum mapToTimeSheetRecordSum(List<TimeSheetDO> timeSheetDOS)
+//    {
+//        TimeSheetRecordsSum timeSheetRecordsSum = new TimeSheetRecordsSum();
+//        timeSheetRecordsSum.setTimeSheetRecords(mapToTimeSheetRecords(timeSheetDOS));
+//        timeSheetRecordsSum.setSumOfWorkingHours(timeSheetDOS.stream().reduce(0d, (a, b) -> a + b));
+//        return timeSheetRecordsSum;
+//    }
 }

@@ -2,10 +2,7 @@ package com.wirelessmedia.controller;
 
 import com.wirelessmedia.controller.facade.ProjectFacade;
 import com.wirelessmedia.controller.facade.TimeSheetFacade;
-import com.wirelessmedia.datatransferobject.ProjectDTO;
-import com.wirelessmedia.datatransferobject.ProjectRecord;
-import com.wirelessmedia.datatransferobject.TimeSheetDTO;
-import com.wirelessmedia.datatransferobject.TimeSheetRecord;
+import com.wirelessmedia.datatransferobject.*;
 import com.wirelessmedia.domainobject.TimeSheetDO;
 import com.wirelessmedia.exception.EmplyeeMystBeJuniorOrMediorDeveloper;
 import com.wirelessmedia.exception.EmplyeeMystBeTeamLead;
@@ -38,9 +35,15 @@ public class TimeSheetController
         return timeSheetFacade.saveTimeSheet(timeSheetDTO);
     }
 
-
     @GetMapping
     public List<TimeSheetRecord> getTimeSheets() throws EntityNotFoundException{
         return  timeSheetFacade.getAllTimeSheets();
+    }
+
+    @PostMapping("/worklog")
+    @ResponseStatus(HttpStatus.CREATED)
+    public TimeSheetRecordsSum getTimeSheetWorkLog(@Valid @RequestBody TimeSheetWorkLogDTO timeSheetWorkLogDTO)
+    {
+        return timeSheetFacade.getTimeSheetWorkLog(timeSheetWorkLogDTO);
     }
 }
