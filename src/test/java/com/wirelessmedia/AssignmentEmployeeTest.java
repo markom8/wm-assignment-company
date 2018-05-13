@@ -1,7 +1,7 @@
 package com.wirelessmedia;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.wirelessmedia.controller.EmployeeController;
+import com.wirelessmedia.controller.api.EmployeeController;
 import com.wirelessmedia.controller.facade.EmployeeFacade;
 import org.junit.Before;
 import org.junit.BeforeClass;

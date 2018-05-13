@@ -1,12 +1,9 @@
 package com.wirelessmedia;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.wirelessmedia.controller.EmployeeController;
-import com.wirelessmedia.controller.TaskController;
-import com.wirelessmedia.controller.facade.EmployeeFacade;
+import com.wirelessmedia.controller.api.TaskController;
 import com.wirelessmedia.controller.facade.TaskFacade;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +14,10 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import javax.transaction.Transactional;
-import java.io.File;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringJUnit4ClassRunner.class)

@@ -1,4 +1,4 @@
-package com.wirelessmedia.controller;
+package com.wirelessmedia.controller.api;
 
 import com.wirelessmedia.controller.facade.ProjectFacade;
 import com.wirelessmedia.datatransferobject.ProjectDTO;

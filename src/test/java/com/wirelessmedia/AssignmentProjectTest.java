@@ -1,9 +1,9 @@
 package com.wirelessmedia;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.wirelessmedia.controller.EmployeeController;
-import com.wirelessmedia.controller.ProjectController;
-import com.wirelessmedia.controller.TeamController;
+import com.wirelessmedia.controller.api.EmployeeController;
+import com.wirelessmedia.controller.api.ProjectController;
+import com.wirelessmedia.controller.api.TeamController;
 import com.wirelessmedia.controller.facade.EmployeeFacade;
 import com.wirelessmedia.controller.facade.ProjectFacade;
 import com.wirelessmedia.controller.facade.TeamFacade;
