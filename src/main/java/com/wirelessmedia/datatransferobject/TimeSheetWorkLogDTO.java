@@ -21,6 +21,16 @@ public class TimeSheetWorkLogDTO implements Serializable
     {
     }
 
+
+    public TimeSheetWorkLogDTO(
+        @NotNull(message = "error.timesheet.projectName.null") String projectName,
+        @NotNull(message = "error.timesheet.employeePersonalNumber.null") String employeePersonalNumber)
+    {
+        this.projectName = projectName;
+        this.employeePersonalNumber = employeePersonalNumber;
+    }
+
+
     public String getProjectName()
     {
         return projectName;

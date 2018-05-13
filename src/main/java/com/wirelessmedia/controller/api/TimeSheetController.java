@@ -40,6 +40,11 @@ public class TimeSheetController
         return  timeSheetFacade.getAllTimeSheets();
     }
 
+    @GetMapping("/employee/{personalNumber}/project/{projectName}")
+    public TimeSheetRecordsSum getTimeSheetsPersonWorkLog(@PathVariable String personalNumber, @PathVariable String projectName) throws EntityNotFoundException{
+        return  timeSheetFacade.getTimeSheetWorkLog(new TimeSheetWorkLogDTO(projectName, personalNumber));
+    }
+
     @PostMapping("/worklog")
     @ResponseStatus(HttpStatus.CREATED)
     public TimeSheetRecordsSum getTimeSheetWorkLog(@Valid @RequestBody TimeSheetWorkLogDTO timeSheetWorkLogDTO)

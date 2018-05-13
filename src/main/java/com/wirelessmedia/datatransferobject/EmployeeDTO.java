@@ -2,6 +2,7 @@ package com.wirelessmedia.datatransferobject;
 
 import com.wirelessmedia.domainvalue.EmployeeType;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 public class EmployeeDTO implements Serializable
@@ -13,8 +14,10 @@ public class EmployeeDTO implements Serializable
 
     private String lastName;
 
+    @NotNull()
     private String personalNumber;
 
+    @NotNull(message = "error.employee.employeeType.null")
     private EmployeeType employeeType;
 
 

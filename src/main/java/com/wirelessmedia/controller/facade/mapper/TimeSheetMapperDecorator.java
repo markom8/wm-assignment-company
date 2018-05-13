@@ -71,7 +71,7 @@ public abstract class TimeSheetMapperDecorator implements TimeSheetMapper
             timeSheetDO = entity.get();
             if(timeSheetDTO.getDate()!=null) timeSheetDO.setDate(timeSheetDTO.getDate());
             if(timeSheetDTO.getTeam()!=null) timeSheetDO.setTeam(timeSheetDTO.getTeam());
-            if(timeSheetDTO.getWorkedHours()!=null) timeSheetDTO.setWorkedHours(timeSheetDTO.getWorkedHours());
+            if(timeSheetDTO.getWorkedHours()!=null) timeSheetDO.setWorkedHours(timeSheetDTO.getWorkedHours());
         }else{
             timeSheetDO = delegate.mapToTimeSheetDO(timeSheetDTO);
             timeSheetDO.setProjectDO(projectDO);
